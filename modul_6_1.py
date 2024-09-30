@@ -5,6 +5,14 @@ class Animal:
     def __init__(self, name):
         self.name = name
 
+    def eat(self, food):
+        if food.edible is True:
+            self.fed = True
+            return f'{self.name} съел {food.name}'
+        else:
+            self.alive = False
+            return f'{self.name} не стал есть {food.name}'
+
 
 class Plant:
     edible = False
@@ -18,27 +26,11 @@ class Mammal(Animal):
     def __init__(self, name):
         super().__init__(name)
 
-    def eat(self, food):
-        if food.edible is True:
-            self.fed = True
-            return f'{self.name} съел {food.name}'
-        else:
-            self.alive = False
-            return f'{self.name} не стал есть {food.name}'
-
 
 class Predator(Animal):
 
     def __init__(self, name):
         super().__init__(name)
-
-    def eat(self, food):
-        if food.edible is True:
-            self.fed = True
-            return f'{self.name} съел {food.name}'
-        else:
-            self.alive = False
-            return f'{self.name} не стал есть {food.name}'
 
 
 class Flower(Plant):
